@@ -7,9 +7,14 @@ import { CoursesService } from './courses.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-
-  title = 'Angular';
   Courses;
+  title = 'INI Tugas Pertama Biodata';
+  date = new Date();
+
+  get format(){
+    return 'fullDate';
+  }
+  
 
   constructor(private service:CoursesService) { 
     this.Courses=service.getCourses();
