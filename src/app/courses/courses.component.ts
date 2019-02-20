@@ -7,20 +7,33 @@ import { CoursesService } from './courses.service';
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
+  
+  title = 'Belajar Angular';
   Courses;
-  title = 'INI Tugas Pertama Biodata';
-  date = new Date();
 
-  get format(){
-    return 'fullDate';
+  binding = 'property-binding';
+  imageUrl = 'http://lorempixel.com/400/200';
+  colSpan = 2;
+  isActive = false;
+  nama = 'Angga';
+
+  onSave($event){
+    $event.stopPropagation();
+    console.log("button sudah diKlik",$event)
+  }
+
+  onDivClick($event){
+    console.log("ini method Div",$event)
+  }
+
+  onKeyUp(){
+    console.log(this.nama);
   }
   
-
   constructor(private service:CoursesService) { 
-    this.Courses=service.getCourses();
+    this.Courses = service.getCourses();
   }
 
   ngOnInit() {
   }
-
 }
