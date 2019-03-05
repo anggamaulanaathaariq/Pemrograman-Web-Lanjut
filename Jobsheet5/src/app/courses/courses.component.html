@@ -24,8 +24,8 @@
   
     <img src="{{imageUrl}}"/>
     <img [src]="imageUrl"/>
-    
-    <button type="button" class="btn btn-primary" [style.backgroundColor]= "isActive?'blue':'white'">Style</button>
+    <button type='button' class="btn btn-primary" [style.backgroundColor]= "isActive?'blue':'white'">Style</button>
+
     <button type="button" class="btn btn-default" (click)="onSave($event)">button</button>
     <div (click)="onDivClick($event)">
       <button type="button" class="btn btn-danger" (click)="onSave($event)">button</button>
