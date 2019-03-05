@@ -1,36 +1,3 @@
-  <p>
-    {{title}}
-  </p>
-  <table>
-    <tr>
-      <td [attr.colSpan]='colSpan'></td>
-    </tr>
-  <thead>
-    <th>
-      #ID
-    </th>
-    <th>Course name</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let Course of Courses">
-      <td>{{ Courses.id }}</td>
-      <td>{{ Courses.name }}</td>
-    </tr>
-  </tbody>
-  </table>  
-  
-  <h2>{{binding}}</h2>
-    <h2 [textContent]='binding'></h2>
-  
-    <img src="{{imageUrl}}"/>
-    <img [src]="imageUrl"/>
-    <button type='button' class="btn btn-primary" [style.backgroundColor]= "isActive?'blue':'white'">Style</button>
 
-    <button type="button" class="btn btn-default" (click)="onSave($event)">button</button>
-    <div (click)="onDivClick($event)">
-      <button type="button" class="btn btn-danger" (click)="onSave($event)">button</button>
-    </div>
-
-    <!-- <input type="text" [value]= 'nama' (keyup.enter)="nama = $event.target.value;onKeyUp()"> -->
-
-    <input type="text" [(ngModel)]="nama"(keyup.enter)="onKeyUp()">
+<app-server></app-server>
+<router-outlet></router-outlet>
