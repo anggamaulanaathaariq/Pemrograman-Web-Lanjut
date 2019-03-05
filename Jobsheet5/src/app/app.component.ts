@@ -2,9 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  // templateUrl: './app.component.html',
+  // styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AnggaMaulanaAthaariqTI2B';
+  title = 'belajar-angular';
+
+  post={
+    titles:"ini post",
+    isFavorite:true
+  }
 }
