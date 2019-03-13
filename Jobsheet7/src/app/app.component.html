@@ -32,7 +32,7 @@
   </div> -->
 
   <!-- Percabangan keelima-->
-  <ul class="nav nav-pills">
+  <!-- <ul class="nav nav-pills">
     <li class="nav-item">
       <a
        (click)="viewMode = 'map'"
@@ -64,7 +64,7 @@
       {{item.name}}
       <span *ngIf="isEven">(Even)</span>
     </li>
-  </ul>
+  </ul> -->
 
   <!-- <button (click)="onAdd()">add</button> -->
   <!-- <ul> -->
@@ -76,7 +76,7 @@
     <!-- </li>
   </ul> -->
 
-  <div *ngIf="courses.length > 0">
+  <!-- <div *ngIf="courses.length > 0">
     list of courses
   </div>
 
@@ -91,7 +91,7 @@
   &nbsp; <button (click)="loadCourses()">Tampilkan Data</button>
     <li *ngFor="let itemone of coursesForOne">
       {{itemone.nama}}
-    </li>
+    </li> -->
 
     <!-- <span
     class="fa"
@@ -107,5 +107,6 @@
     }"
     (click)="onClickAlias()"></span> -->
     <br>
-    &nbsp; <input type="text" appInputFormat>
+    <!-- &nbsp; <input type="text" appInputFormat [format]= "'uppercase'"> -->
+    &nbsp; <input type="text" [appInputFormat]= "'uppercase'">
 <router-outlet></router-outlet>
