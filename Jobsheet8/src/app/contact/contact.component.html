@@ -1,19 +1,29 @@
 <div class="container">
   <div class="col-md-6">
-    <form action="">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
       <div class="form-group">
         <label for="nama"> Nama </label>
         <input 
         type="text" 
         id="nama" 
         class="form-control" 
+        required
+        minlength="3"
+        maxlength="10"
+        pattern="pisang"
         ngModel 
         #firstName="ngModel" 
         (change)="log(firstName)" 
         name="nama" />
-        <div 
+        <!-- <div 
         class="alert alert-danger" 
-        *ngIf="firstName.touched && !firstName.valid">Nama harus diisi</div>
+        *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors['required']">Nama harus diisi</div>
+        <div *ngIf="firstName.errors['minlength']">nama min 3 kata</div>
+        <div *ngIf="firstName.errors['pattern']">
+          nama tidak sesuai dengan pattern
+        </div> -->
+      <!-- </div> -->
       </div>
       <div class="form-group">
         <label for="comment">Comment:</label>
@@ -24,7 +34,7 @@
         ngModel
         name="comment" ></textarea>
       </div>
-      <button type="button" class="btn btn-primary">
+      <button type="submit" class="btn btn-primary">
         button
       </button>
     </form>
