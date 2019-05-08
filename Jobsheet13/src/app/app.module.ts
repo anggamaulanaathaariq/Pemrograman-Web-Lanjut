@@ -16,6 +16,13 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { TemplateDrivenComponent } from './template-driven/template-driven.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { FormMemberComponent } from './form-member/form-member.component';
+import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthDemoStarterComponent } from './auth-demo-starter/auth-demo-starter.component';
 
 
 @NgModule({
@@ -31,13 +38,25 @@ import { PostsComponent } from './posts/posts.component';
     TemplateDrivenComponent,
     SignupFormComponent,
     PostsComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    HomeComponent,
+    FormMemberComponent,
+    ProfileComponent,
+    AuthDemoStarterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {path:'', component:HomeComponent},
+      {path:'form', component:FormMemberComponent},
+      {path:'post', component:PostsComponent},
+      {path:'profile/:id', component:ProfileComponent},
+      {path:'**', component:NotFoundComponent}])
   ],
   providers: [],
   bootstrap: [AppComponent]
