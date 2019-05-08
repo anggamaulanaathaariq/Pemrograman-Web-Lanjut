@@ -1,64 +1,53 @@
+import { AuthHttp, AUTH_PROVIDERS, provideAuth, AuthConfig } from 'angular2-jwt/angular2-jwt';
+import { OrderService } from './services/order.service';
+import { MockBackend } from '@angular/http/testing';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, Http, BaseRequestOptions } from '@angular/http';
+import { RouterModule } from '@angular/router'; 
 
-import {FormsModule} from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoursesComponent } from './courses/courses.component';
-import { ServerComponent } from './server/server.component';
-import { ServersComponent } from './servers/servers.component';
-import { FavoriteComponent } from './favorite/favorite.component';
-import { InputFormatDirective } from './input-format.directive';
-import { ContactComponent } from './contact/contact.component';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { TemplateDrivenComponent } from './template-driven/template-driven.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
-import { PostsComponent } from './posts/posts.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { FormMemberComponent } from './form-member/form-member.component';
-import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { AuthDemoStarterComponent } from './auth-demo-starter/auth-demo-starter.component';
-
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { AdminComponent } from './admin/admin.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
-    ServerComponent,
-    ServersComponent,
-    FavoriteComponent,
-    InputFormatDirective,
-    ContactComponent,
-    ReactiveFormComponent,
-    TemplateDrivenComponent,
-    SignupFormComponent,
-    PostsComponent,
-    NavbarComponent,
-    NotFoundComponent,
+    LoginComponent,
+    SignupComponent,
+    AdminComponent,
     HomeComponent,
-    FormMemberComponent,
-    ProfileComponent,
-    AuthDemoStarterComponent,
+    NotFoundComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
-      {path:'', component:HomeComponent},
-      {path:'form', component:FormMemberComponent},
-      {path:'post', component:PostsComponent},
-      {path:'profile/:id', component:ProfileComponent},
-      {path:'**', component:NotFoundComponent}])
+      { path: '', component: HomeComponent },
+      { path: 'admin', component: AdminComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'no-access', component: NoAccessComponent }
+    ])
   ],
-  providers: [],
+  providers: [
+    OrderService,
+
+    AuthService,
+
+    // For creating a mock back-end. You don't need these in a real app. 
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
