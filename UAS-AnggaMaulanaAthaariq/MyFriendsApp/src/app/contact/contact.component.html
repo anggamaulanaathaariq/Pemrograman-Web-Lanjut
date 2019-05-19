@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="form-group">
+            <br>
+           <h3 align="center">Contact Me</h3>
+           <label for="nama"> Your Name: </label>
+        <input type="text" id="nama" class="form-control" [(ngModel)]="nama" name="nama"/>
+  </div>
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+      <div class="form-group">
+        <label for="email"> Email: </label>
+        <input 
+        type="text" 
+        id="email" 
+        class="form-control" 
+        required 
+        email
+        ngModel 
+        #firstEmail="ngModel" 
+        (change)="log(firstEmail)"
+        name="email" 
+        />
+        <div 
+        class="alert alert-danger" 
+        *ngIf="firstEmail.touched && !firstEmail.valid">
+        <div *ngIf="firstEmail.errors['required']">Email is required</div>
+        <div *ngIf="firstEmail.errors['email']">
+          Harus berupa Email
+        </div>
+      </div>
+</div>     
+      <div class="form-group">
+        <label for="Comment">Your Message:</label>
+        <textarea 
+        class="form-control" 
+        rows="5" 
+        id="Comment" 
+        ngModel
+        name="Comment" ></textarea>
+      </div>
+        <!--Menampilkan Hasil Inputannya-->
+        <h3>Your Data:</h3>
+        <p>Nama :  {{nama}}</p>
+        <p>Email :  {{email}}</p>
+        <p>Message :  {{Comment}}</p>
+        <p>
+          {{form.value|json}}
+        </p>
+      <button type="submit"  class="btn btn-primary">
+        Submit
+      </button>
+      </form>
+  </div>
+  </div>
