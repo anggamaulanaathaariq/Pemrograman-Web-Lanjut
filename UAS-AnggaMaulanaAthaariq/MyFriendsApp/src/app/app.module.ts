@@ -23,6 +23,7 @@ import { FormMemberComponent } from './form-member/form-member.component';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { UserServiceComponent } from './user-service/user-service.component';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { UserServiceComponent } from './user-service/user-service.component';
     FormMemberComponent,
     ProfileComponent,
     UserServiceComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -52,13 +54,14 @@ import { UserServiceComponent } from './user-service/user-service.component';
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
+      {path:'', component:SignupFormComponent},
       {path:'sign-up', component:SignupFormComponent},
       {path:'contact', component:ContactComponent},
       {path:'post', component:PostsComponent},
       {path:'profile/:id', component:ProfileComponent},
       {path:'**', component:NotFoundComponent}])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

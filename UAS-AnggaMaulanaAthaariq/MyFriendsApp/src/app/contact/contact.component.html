@@ -39,16 +39,16 @@
         name="Comment" ></textarea>
       </div>
         <!--Menampilkan Hasil Inputannya-->
-        <h3>Your Data:</h3>
+      <button type="submit"  class="btn btn-primary">
+        Submit
+      </button>
+      <h3>Your Data:</h3>
         <p>Nama :  {{nama}}</p>
         <p>Email :  {{email}}</p>
         <p>Message :  {{Comment}}</p>
         <p>
           {{form.value|json}}
         </p>
-      <button type="submit"  class="btn btn-primary">
-        Submit
-      </button>
       </form>
   </div>
   </div>
