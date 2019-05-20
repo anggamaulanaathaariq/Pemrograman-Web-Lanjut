@@ -54,8 +54,28 @@ export class PostsComponent {
       this.coursesForOne.push({id: this.coursesForOne.length + 1, name: this.uppercase(form.nama), email: form.email, contact: form.contact});
       // form.valid;
      }
-
      uppercase(nama){
       return nama.toUpperCase();
+    // }
+    // assignCopy(){
+    //   this.coursesForOne = Object.assign([], this.submit);
+    // }
+    // filterItem(value){
+    //   if(!value){
+    //       this.assignCopy();
+    //   } // when nothing has typed
+    //   this.coursesForOne = Object.assign([], this.submit).filter(
+    //      item => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+    //   )
+    //   this.assignCopy();
+    }
+    search(term: string) {
+      if(!term) {
+        this.coursesForOne = this.coursesForOne;
+      } else {
+        this.coursesForOne = this.coursesForOne.filter(x => 
+           x.name.trim().toLowerCase().includes(term.trim().toLowerCase())
+        );
+      }
     }
   }

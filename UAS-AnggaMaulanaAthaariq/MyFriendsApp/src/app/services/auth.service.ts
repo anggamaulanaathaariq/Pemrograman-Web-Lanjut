@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
-
 
 @Injectable()
 export class AuthService {

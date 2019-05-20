@@ -12,7 +12,7 @@
           name="nama" placeholder="Name"
           />
           <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
-            <div *ngIf="firstName.errors['required']">Nama is required</div>
+            <div *ngIf="firstName.errors['required']">Nama Harap Diisi</div>
           </div>
         </div>
        </div>
@@ -26,7 +26,7 @@
           />
           <div class="alert alert-danger" 
           *ngIf="firstEmail.touched && !firstEmail.valid">
-          <div *ngIf="firstEmail.errors['required']">Email is required</div>
+          <div *ngIf="firstEmail.errors['required']">Email Harap Diisi</div>
           <div *ngIf="firstEmail.errors['email']">
               Harus berupa Email
             </div>
@@ -55,15 +55,22 @@
         <!-- Default input -->
       <button  type="submit" class="btn btn-success">Add Friend</button>
     </form>
-    
       <br>
       <h3 align="center">My Friends</h3>
       <!-- Search form -->   
       <div align="center">  
       <form>
           <div class="form-group row">
+             
+          <!-- <input #myInput placeholder="Item name..." [(ngModel)]="name" (input)="filterItem(myInput.value)"></input> -->
           <label align="center" for="inputText3" class="col-sm-2 col-form-label">Search</label>
-          <input class="search" type="text" placeholder="Cari..." required>		
+          <!-- <div *ngFor="let item of filteredItems">
+            {{firstName.id}}  
+            {{firstName.name}}
+            {{firstName.email}}
+            {{firstName.contact}}
+           </div> -->
+          <input type="nama" (keyup)='search($event.target.value)'class="search" type="text" placeholder="Cari..." required>		
         </div>
       <table class="table">
           <thead>
