@@ -16,7 +16,6 @@ export class AuthService {
           localStorage.setItem('token', result.token);
           return true;
         }
-        // console.log(response.json());
         return false;
       });
   }
