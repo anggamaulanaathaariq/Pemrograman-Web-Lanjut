@@ -7,15 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class ContactComponent {
-  @Input() nama:string;
-  @Input() email:string;
-  @Input() Comment:string;
+  yourData: boolean;
+  // @Input() nama:string;
+  // @Input() email:string;
+  // @Input() Comment:string;
 
-  log(z) {
-    console.log(z);
+  data=[
+    {nama: '', email: '', comment: ''}
+  ]
+
+  log(x) {
+    console.log(x);
   }
 
   submit(form){
+    this.yourData = true;
     console.log(form);
     form.valid;
   }

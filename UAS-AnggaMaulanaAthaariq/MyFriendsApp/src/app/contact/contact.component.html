@@ -1,12 +1,12 @@
 <div class="container">
     <div class="col-md-12">
+        <form #form="ngForm" (ngSubmit)="submit(form.value)">
         <div class="form-group">
             <br>
            <h3 align="center">Contact Me</h3>
            <label for="nama"> Your Name: </label>
         <input type="text" id="nama" class="form-control" [(ngModel)]="nama" name="nama"/>
   </div>
-    <form #form="ngForm" (ngSubmit)="submit(form)">
       <div class="form-group">
         <label for="email"> Email: </label>
         <input 
@@ -27,8 +27,7 @@
         <div *ngIf="firstEmail.errors['email']">
           Harus berupa Email
         </div>
-      </div>
-</div>     
+      </div> 
       <div class="form-group">
         <label for="Comment">Your Message:</label>
         <textarea 
@@ -38,17 +37,17 @@
         ngModel
         name="Comment" ></textarea>
       </div>
+  </div>
         <!--Menampilkan Hasil Inputannya-->
       <button type="submit"  class="btn btn-primary">
         Submit
       </button>
-      <h3>Your Data:</h3>
-        <p>Nama :  {{nama}}</p>
-        <p>Email :  {{email}}</p>
-        <p>Message :  {{Comment}}</p>
-        <p>
-          {{form.value|json}}
-        </p>
       </form>
+      <div *ngIf="yourData">
+          <h2><b>Your Data</b></h2>
+          <p>Username: {{form.value.nama|json}}</p>
+          <p>Email: {{form.value.email|json}}</p>
+          <p>Message: {{form.value.comment|json}}</p>
+        </div>
   </div>
-  </div>
+ 

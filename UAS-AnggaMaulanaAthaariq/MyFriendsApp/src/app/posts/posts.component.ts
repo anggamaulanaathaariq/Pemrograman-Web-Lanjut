@@ -56,18 +56,18 @@ export class PostsComponent {
      }
      uppercase(nama){
       return nama.toUpperCase();
-    // }
-    // assignCopy(){
-    //   this.coursesForOne = Object.assign([], this.submit);
-    // }
-    // filterItem(value){
-    //   if(!value){
-    //       this.assignCopy();
-    //   } // when nothing has typed
-    //   this.coursesForOne = Object.assign([], this.submit).filter(
-    //      item => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1
-    //   )
-    //   this.assignCopy();
+    }
+    assignCopy(){
+      this.coursesForOne = Object.assign([], this.submit);
+    }
+    filterItem(value){
+      if(!value){
+          this.assignCopy();
+      } // when nothing has typed
+      this.coursesForOne = Object.assign([], this.submit).filter(
+         item => item.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+      )
+      this.assignCopy();
     }
     search(term: string) {
       if(!term) {
@@ -78,4 +78,11 @@ export class PostsComponent {
         );
       }
     }
+    // search(){
+    //   if(this.coursesForOne!= ""){
+
+    //   }else if(this.coursesForOne == ""){
+    //     this.ngOnInit();
+    //   }
+    // }
   }
