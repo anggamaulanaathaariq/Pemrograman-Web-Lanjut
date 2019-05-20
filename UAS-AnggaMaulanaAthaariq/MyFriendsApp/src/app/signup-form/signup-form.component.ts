@@ -1,26 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { UsernameValidators } from './username.validators';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup-form',
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.css']
 })
-export class SignupFormComponent implements OnInit {
+export class SignupFormComponent {
+  invalidLogin: boolean;
+
   form = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
-    // username: new FormControl('', [
-    //   Validators.required,
-    //   Validators.minLength(5),
-    //   UsernameValidators.cannotContainSpace
-    // ],
-    // UsernameValidators.shouldBeUnique),
-    // password: new FormControl('', Validators.required)
+
   });
 
-  login(){
+  login(credentials){
+    this.authService.login(credentials).subscribe(result => {
+      if (result)
+      this.router.navigate(['/post']);
+      else
+      this.invalidLogin = true;
+    })
     this.form.setErrors({
       invalidLogin: true
     });
@@ -30,7 +33,9 @@ export class SignupFormComponent implements OnInit {
     return this.form.get('username');
   }
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private authService: AuthService) {}
 
   ngOnInit() {
   }
