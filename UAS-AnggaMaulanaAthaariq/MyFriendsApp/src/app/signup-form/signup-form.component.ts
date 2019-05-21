@@ -15,8 +15,7 @@ export class SignupFormComponent {
     private authService: AuthService) {}
 
   login(credentials){
-    this.authService.login(credentials).
-    subscribe(result => {
+    this.authService.login(credentials).subscribe(result => {
       if (result)
       this.router.navigate(['/post']);
       else

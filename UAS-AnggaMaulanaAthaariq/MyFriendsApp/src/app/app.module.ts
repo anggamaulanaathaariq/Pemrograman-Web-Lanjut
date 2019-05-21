@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpModule, BaseRequestOptions} from '@angular/http';
-
+import { FilterPipeModule } from 'ngx-filter-pipe';
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -54,6 +54,7 @@ import { MockBackend } from '@angular/http/testing';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FilterPipeModule,
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([

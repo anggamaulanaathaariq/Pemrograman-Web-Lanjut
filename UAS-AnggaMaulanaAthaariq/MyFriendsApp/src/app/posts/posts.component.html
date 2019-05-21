@@ -53,30 +53,39 @@
           </div>
         </div>       
         <!-- Default input -->
-      <button  type="submit" class="btn btn-success">Add Friend</button>
+      <button  type="submit" [disabled]="!form.valid" class="btn btn-success">Add Friend</button>
     </form>
       <br>
       <h3 align="center">My Friends</h3>
       <!-- Search form -->   
       <div align="center">  
-      <form>
           <div class="form-group row">
-          <label align="center" for="inputText3" class="col-sm-2 col-form-label">Search</label>
-          <input type="nama" (keyup)='search($event.target.value)'class="search" type="text" placeholder="Cari..." required>		
-        </div>
+              <label for="inputText3" class="col-sm-1 col-form-label">Search :</label>
+              <input type="text" [(ngModel)]="userFilter.name" placeholder="Cari...">
+              <br>
       <table class="table">
           <thead>
+            <br>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Contact</th>
             </tr>
-            <tr *ngFor="let firstName of coursesForOne">
+          </thead>
+            <tbody>
+            <tr *ngFor="let firstName of coursesForOne | filterBy: userFilter">
               <th> {{firstName.id}} </th>
               <th> {{firstName.name}} </th>
               <th> {{firstName.email}} </th>
               <th> {{firstName.contact}} </th>
             </tr>
-          </thead>
+            <li *ngIf="(coursesForOne | filterBy: userFilter).length === 0">
+                    No matching elements
+                  </li>
+                </tbody>
+          </table>
+      </div>
+    </div>
+  
           

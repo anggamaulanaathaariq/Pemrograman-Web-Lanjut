@@ -16,12 +16,12 @@
     *ngIf="authService.isLoggedIn()">
     <a class="nav-link" routerLink="/post">Friends</a>
   </li>
-  <li routerLinkActive="active">
+  <li routerLinkActive="active item">
   <a class="nav-link" routerLink="/contact">Contact Me</a>
 </li>
-<li routerLinkActive="active" (click)="onLogout()"
+<li routerLinkActive="active item" (click)="onLogout()"
 *ngIf="authService.isLoggedIn()">
-<a class="nav-link" routerLink="/">Logout</a>
+<a class="nav-link" routerLink="/">[Logout]</a>
   </li>
   </ul>
 </div>

@@ -29,7 +29,8 @@
         </div>
       </div> 
       <div class="form-group">
-        <label for="Comment">Your Message:</label>
+        <br>
+        <label for="Comment">Your Message: </label>
         <textarea 
         class="form-control" 
         rows="5" 
@@ -39,7 +40,7 @@
       </div>
   </div>
         <!--Menampilkan Hasil Inputannya-->
-      <button type="submit"  class="btn btn-primary">
+      <button type="submit" class="btn btn-primary">
         Submit
       </button>
       </form>
@@ -47,7 +48,7 @@
           <h2><b>Your Data</b></h2>
           <p>Username: {{form.value.nama|json}}</p>
           <p>Email: {{form.value.email|json}}</p>
-          <p>Message: {{form.value.comment|json}}</p>
+          <p>Message: {{form.value.Comment|json}}</p>
         </div>
   </div>
  

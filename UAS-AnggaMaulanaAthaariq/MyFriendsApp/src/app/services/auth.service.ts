@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 export class AuthService {
   constructor(private http: Http, public router: Router) {
   }
-
   login(credentials) { 
    return this.http.post('/api/authenticate', 
       JSON.stringify(credentials)).map(response => {
@@ -20,12 +19,10 @@ export class AuthService {
         return false;
       });
   }
-
   logout() { 
     localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
-
   isLoggedIn() { 
     return tokenNotExpired();
   }
