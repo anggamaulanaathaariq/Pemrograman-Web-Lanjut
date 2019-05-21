@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpModule, BaseRequestOptions} from '@angular/http';
 
 import {FormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +24,9 @@ import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { UserServiceComponent } from './user-service/user-service.component';
 import { AuthService } from './services/auth.service';
+import { OrderService } from './services/order.service';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { MockBackend } from '@angular/http/testing';
 
 
 @NgModule({
@@ -61,7 +64,13 @@ import { AuthService } from './services/auth.service';
       {path:'profile/:id', component:ProfileComponent},
       {path:'**', component:NotFoundComponent}])
   ],
-  providers: [AuthService],
+  providers: [
+    OrderService,
+    AuthService,
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

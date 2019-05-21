@@ -1,48 +1,23 @@
-<div align="center">
-<div class="container">
-    <div align="center"> 
-    <div class="col-md-6">
+<br>
+<div style=text-align:center>
+  <h2>
+    My Friends App!
+  </h2>
+  <img width="520" class="img-responsive" src="assets/images/uas.jpg">
+  <br>
+  <br>
+</div>
+  <div class="col-md-4 offset-md-4">
+    <form class="form-signin" class="form-group" #f="ngForm" (ngSubmit)="login(f.value)">
+      <label >Username</label>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="email" id="inputEmail" name="email" ngModel class="form-control" placeholder="Username" required autofocus>
       <br>
-<h3 align="center">My Friends App..!</h3>
-     <img width="520" class="img-responsive" src="assets/images/uas.jpg">
-<form [formGroup]="form" (ngSubmit)="login()">
-  <div *ngIf="form.errors" class="alert alert-danger">
-    The Username And Password Is Invalid.
+      <label>Password</label>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required>
+      <br>
+      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+      <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Login</button>
+    </form>
   </div>
-  <div class="col-md-17 offset-md-17" >
-  <div class="form-group">
-    <br>
-    <div align="left" for="username">Username :</div>
-    <input 
-        formControlName="username" 
-        id="username" 
-        class="form-control" type="text" placeholder="Username">
-        
-        <div *ngIf="form.get('username').touched && form.get('username').invalid">
-        <!-- <div *ngIf="username.pending">Checking For Uniquenesss...</div> -->
-          <div *ngIf="username.touched && username.invalid"
-          class="alert alert-danger">
-          <!-- <div *ngIf="Username.errors.required">Username Is Required</div>
-            
-          <div *ngIf="Username.errors.minlength">Username Should Minimum {{username.errors.minlength.requiredLength}} characters
-            </div> -->
-            <!-- <div *ngIf="username.errors.cannotContainSpace">
-              Cannot Contain Space
-            </div> -->
-            <!-- <div *ngIf="username.errors.shouldBeUnique">
-              Username Is Already Taken.
-            </div> -->
-          </div>
-        </div>
-      </div>
-  <div class="form-group">
-    <div align="left" for="password">Password :</div>
-    <input 
-        formControlName = "password" 
-        id="password" 
-        class="form-control" type="password" placeholder="Password">
-  </div>
-</div>
-  <button routerLink="/post" class="btn btn-success" type="submit">Login</button>
-</form>
-</div>
