@@ -8,9 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class ContactComponent {
   yourData: boolean;
-  // @Input() nama:string;
-  // @Input() email:string;
-  // @Input() Comment:string;
 
   data=[
     {nama: '', email: '', comment: ''}

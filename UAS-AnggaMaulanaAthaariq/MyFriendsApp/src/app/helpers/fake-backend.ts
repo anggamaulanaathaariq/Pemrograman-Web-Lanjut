@@ -25,12 +25,6 @@ export function fakeBackendFactory(
           ));
         }
       }
-
-
-
-       // 
-       // Fake implementation of /api/orders
-       //
        if (connection.request.url.endsWith('/api/orders') && 
            connection.request.method === RequestMethod.Get) {
          if (connection.request.headers.get('Authorization') === 'Bearer ' + token) {
@@ -43,9 +37,6 @@ export function fakeBackendFactory(
            ));
        }
     }
-
-
-
     }, 1000);
   });
 
